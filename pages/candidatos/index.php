@@ -44,6 +44,10 @@
 
     $filtro = isset($_GET['filtro']) ? $_GET['filtro']: "";
     $consulta=$conexao->query("SELECT * FROM candidatos where nome like '$filtro%';");
+    $consulta1=$conexao->query("SELECT sum(votos) as votototal from candidatos;");
+    $resultado = $consulta1->fetch(PDO::FETCH_ASSOC);
+    
+    echo "<center><h3>VOTOS TOTAIS:".$resultado['votototal']."</h3></center>";
     
     while($linha=$consulta->fetch(PDO::FETCH_ASSOC)){
             echo "<tr>
