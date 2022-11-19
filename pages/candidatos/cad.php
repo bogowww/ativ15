@@ -37,12 +37,12 @@
         <div class="row">
             <div class="col-2">
                 <label class="form-label" for="partido">Partido</label>
-                <input class="form-control" type="text" name="partido" id="partido" placeholder="78.5"required
+                <input class="form-control" type="text" name="partido" id="partido" placeholder="XX"required
                 value="<?php if ($acao == 'editar') echo $dados['partido'];?>">
             </div>
             <div class="col-2">
                 <label class="form-label" for="numero">Número</label>
-                <input class="form-control" type="text" name="numero" id="numero" placeholder="1.78" required
+                <input class="form-control" type="text" name="numero" id="numero" placeholder="xx" required
                 value="<?php if ($acao == 'editar') echo $dados['numero'];?>">
             </div>    
         </div>

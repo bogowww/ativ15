@@ -21,7 +21,8 @@
         echo "<div class='card-body'>";
         echo "<div class='card-header'>Código:".$linha["codigo"]."</div>";
         echo "<h5 class='card-title'>Nome: ".$linha["nome"]."</h5>";
-        echo "<p class='card-text'>Partido: ".$linha["partido"]."<br>Número: ".$linha["numero"]."<br>"."</p>";
+        echo "<p class='card-text'>Partido: ".$linha["partido"]."<br>Número: ".$linha["numero"]."<br>"."Votos: ".$linha["votos"]."<br>"."</p>";
+        echo "<a class='btn btn-warning' href='cad.php?acao=editar&codigo=".$linha['codigo']."'.>Editar</a>";
         echo "<a class='btn btn-danger' onClick='return excluir();' href='acao.php?acao=excluir&codigo=".$linha['codigo']."'.>Excluir</a>";
     }
 ?>  

@@ -10,7 +10,14 @@ switch($_SERVER['REQUEST_METHOD']) {
 switch($acao){
     case 'excluir': excluir(); break;
     case 'votar': votar(); break;
-    case 'salvar': salvar(); break;
+    case 'salvar': {
+        $codigo = isset($_POST['codigo']) ? $_POST['codigo'] : "";
+        if ($codigo == 0)
+            salvar(); 
+        else
+            editar();
+        break;
+    }
 }
 
 function excluir(){    
@@ -25,14 +32,21 @@ function salvar(){
     $partido = isset($_POST['partido']) ? $_POST['partido']: 0;
     $numero = isset($_POST['numero']) ? $_POST['numero']: 0;
     $conexao = Conexao::getInstance();
-    $conexao = $conexao->query("INSERT INTO candidatos (nome, partido, numero) VALUES ('$nome', $partido, $numero);");
+    $conexao = $conexao->query("INSERT INTO candidatos (nome, partido, numero) VALUES ('$nome', '$partido', $numero);");
     header("location:index.php");
 }
 
 function votar(){
     $codigo = isset($_GET['codigo']) ? $_GET['codigo']:0;
     $conexao = Conexao::getInstance();
+    $consulta=$conexao->query("SELECT votos FROM candidatos WHERE (codigo = '$codigo');");
+    $linha=$consulta->fetch(PDO::FETCH_ASSOC);
+    if ($linha["votos"] == 0){
+        $voto = 1;
+        $conexao = $conexao->query("UPDATE candidatos SET votos = '$voto' WHERE (codigo = '$codigo');");
+    }else{
     $conexao = $conexao->query("UPDATE candidatos SET votos = votos + 1 WHERE (codigo = '$codigo');");
+    }
     header("location:index.php");
 }
 
@@ -42,9 +56,7 @@ function editar(){
     $partido = isset($_POST['partido']) ? $_POST['partido']: 0;
     $numero = isset($_POST['numero']) ? $_POST['numero']: 0;
     $conexao = Conexao::getInstance();
-    $conexao = $conexao->query("UPDATE candidatos SET nome = '$nome',
-                                partido = $partido, numero = $numero 
-                                WHERE codigo = $codigo;");
+    $conexao = $conexao->query("UPDATE candidatos SET nome = '$nome', partido = '$partido', numero = $numero WHERE codigo = $codigo;");
     header("location:index.php");
 }
 
