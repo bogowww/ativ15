@@ -51,7 +51,7 @@
                     <td>{$linha['nome']}</td>
                     <td>{$linha['partido']}</td>
                     <td>{$linha['numero']}</td>
-                    <td><a href='acao.php?acao=votar&codigo={$linha['codigo']}'><img src='../../assets/img/correto.png' height='30' width='30' ></a></td>";
+                    <td><a class='btn btn-secondary' href='acao.php?acao=votar&codigo={$linha['codigo']}'.>Votar</a></td>";
                     if ($linha['votos'] == 0) echo "<td>0</td>"; else echo "<td>{$linha['votos']}</td>";
                     echo "<td><a class='btn btn-info' href='show.php?codigo={$linha['codigo']}'>Detalhes</a></td>
                     <td><a class='btn btn-warning' href='cad.php?acao=editar&codigo={$linha['codigo']}'>Editar</a></td>
