@@ -1,0 +1,29 @@
+body {
+    background-color:#afbac7 !important;
+}
+.container {
+    width: 1000vw;
+    background: #afbac7;
+    text-align: center;
+}
+.box {
+    align-self: center;
+    margin: auto;
+    width: 55%;
+    height: 200px;
+    background: inherit;
+}
+.caxa {
+    height: 275px;
+    display: flex;
+}
+
+.caxa2 {
+    height: 100px;
+    display: flex;
+}
+
+h1 {
+    align-self:flex-end;
+    margin: auto;
+}

@@ -1,0 +1,39 @@
+body {
+    width: 100%;
+    background-color: #afbac7;
+}
+
+.father {
+    width: 100%;
+    text-align: center;
+}
+
+.container {
+    background-color: #afbac7;
+    height: 700px;
+}
+
+.box {
+    width: 2000px;
+    height: 50px;
+    background: #fff;
+}
+
+h1{
+    text-align: center;
+}
+
+.cand{
+    background: rgb(206, 206, 206);
+    text-align: center;
+}
+
+.bolso{
+    height: 300px;
+}
+
+a {
+    color: black;
+    text-decoration: none !important;
+    text-decoration-color: inherit !important;
+}
